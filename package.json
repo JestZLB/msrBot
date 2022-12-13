@@ -1,0 +1,24 @@
+{
+  "dependencies": {
+    "@koishijs/plugin-adapter-discord": "^3.3.2",
+    "@koishijs/plugin-adapter-onebot": "^5.4.4",
+    "@koishijs/plugin-console": "^4.7.1",
+    "@koishijs/plugin-echo": "^2.0.5",
+    "@koishijs/plugin-sandbox": "^2.4.0",
+    "koishi": "^4.10.4",
+    "moment": "^2.29.4"
+  },
+  "devDependencies": {
+    "@types/node": "^18.11.10",
+    "esbuild": "^0.15.17",
+    "esbuild-register": "^3.4.1",
+    "typescript": "^4.9.3"
+  },
+  "name": "msr_bot",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "license": "MIT",
+  "scripts": {
+    "start": "node -r esbuild-register ."
+  }
+}
