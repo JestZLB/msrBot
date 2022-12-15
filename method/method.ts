@@ -1,5 +1,4 @@
 import moment from 'moment';
-
 // 随机数函数
 export const radom = (min:number,max:number)=>{
     min = Math.ceil(min);
@@ -124,5 +123,6 @@ export class SameGuildThrottle {
     
     
 }
+
 
 

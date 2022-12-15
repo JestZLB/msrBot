@@ -27,8 +27,10 @@ import {
   sendMorning
 } from './getTime'
 
-const isSameGuildFn = isSameGuild();
-const throttleFn = throttle();
+import {
+  getWeather
+} from './getHttp'
+
 
 const ameSameGuildThrottle = new SameGuildThrottle();
 const xiaxiaSameGuildThrottle = new SameGuildThrottle();
@@ -37,6 +39,7 @@ const mySameGuildThrottle = new SameGuildThrottle();
 const nightSameGuildThrottle = new SameGuildThrottle();
 const morningSameGuildThrottle = new SameGuildThrottle();
 const helpSameGuildThrottle = new SameGuildThrottle();
+const getWeatherSameGuildThrottle = new SameGuildThrottle();
 
 //根据文本选择方法
 const witchFn = (text:string,session:Session)=>{
@@ -67,7 +70,15 @@ const witchFn = (text:string,session:Session)=>{
 
       case isInArr(helpTextArr,text):
         helpSameGuildThrottle.isSameGuild(session.guildId || '0',5000,async()=>await getHelpImg(session))
-      break
+      break;
+
+      case haveText(/查询天气/g,text):
+        getWeatherSameGuildThrottle.isSameGuild(session.guildId || '0',30000,async()=>await getWeather(session),(value:string)=>session.send(`<at id="${session.userId}"/>真白天气预报还有${value}冷却时间哦`))
+      break;
+
+      case haveText(/查天气/g,text):
+        getWeatherSameGuildThrottle.isSameGuild(session.guildId || '0',30000,async()=>await getWeather(session),(value:string)=>session.send(`<at id="${session.userId}"/>真白天气预报还有${value}冷却时间哦`))
+      break;
 
       default:
       return;
