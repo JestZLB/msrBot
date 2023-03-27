@@ -80,7 +80,7 @@ interface guildObj {
 }
 
 
-
+//判断群是否存在
 export class SameGuildThrottle {
     guildArr:Array<guildObj> = []
 

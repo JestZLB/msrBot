@@ -20,7 +20,7 @@ interface gaoderes {
 }
 
 export const getWeather = async(session:Session)=>{
-    const key=''//填入你的高德地图天气KEY
+    const key='59b11e04a7a7d6525b00c094fd43755d'//填入你的高德地图天气KEY
     const textArr = session.content.split(' ')
     if(textArr.length>1){
         const city = textArr[1]

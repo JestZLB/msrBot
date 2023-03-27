@@ -49,7 +49,6 @@ export const getMyImg = (session:Session) => {
         return session.send(
         `
         <>
-        <at id="${session.userId}"/>指令无法接受
         <image url="${file}"/>
         </>
         `

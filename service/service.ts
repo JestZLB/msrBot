@@ -10,6 +10,9 @@ export class ServiceHTTP extends Context{
     }
 }
 
-
+export class CarCard extends Context {
+       
+    
+}
 
 
